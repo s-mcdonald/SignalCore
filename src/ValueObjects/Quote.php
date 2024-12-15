@@ -16,21 +16,21 @@ use Signal\Core\ValueObjects\Contracts\ComplexValueObject;
 final class Quote extends ComplexValueObject implements QuoteInterface
 {
     public function __construct(
-        private readonly AssetType           $type,
-        private readonly AssetSymbol         $symbol,
+        private readonly AssetType $type,
+        private readonly AssetSymbol $symbol,
         private readonly AssetShortName|null $shortName,
-        private readonly AssetLongName|null  $longName,
-        private readonly Currency|null       $currency,
-        private readonly Exchange|null       $exchange,
-        private readonly MoneyAmount|null    $fiftyDayAverage,
-        private readonly MoneyAmount|null    $marketPrice,
-        private readonly MoneyAmount|null    $fiftyTwoWeekHigh,
-        private readonly MoneyAmount|null    $fiftyTwoWeekLow,
-        private readonly PeRatio|null        $trailingPe,
-        private readonly PeRatio|null        $forwardPe,
-        private readonly MoneyAmount|null    $marketCap,
-        private readonly OpenInterest|null   $openInterest,
-        private readonly TradingVolume|null  $volume,
+        private readonly AssetLongName|null $longName,
+        private readonly Currency|null $currency,
+        private readonly Exchange|null $exchange,
+        private readonly MoneyAmount|null $fiftyDayAverage,
+        private readonly MoneyAmount|null $marketPrice,
+        private readonly MoneyAmount|null $fiftyTwoWeekHigh,
+        private readonly MoneyAmount|null $fiftyTwoWeekLow,
+        private readonly PeRatio|null $trailingPe,
+        private readonly PeRatio|null $forwardPe,
+        private readonly MoneyAmount|null $marketCap,
+        private readonly OpenInterest|null $openInterest,
+        private readonly TradingVolume|null $volume,
     ) {
         parent::__construct();
     }

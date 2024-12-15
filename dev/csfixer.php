@@ -42,5 +42,5 @@ return (new PhpCsFixer\Config())
             ->in(__DIR__ . '/../src'))
         ->setUsingCache(true)
         ->setRiskyAllowed(true)
-        ->setCacheFile(__DIR__ . '/.cache/cs-fixer.cache')
+        ->setCacheFile(__DIR__ . '/dev/.cache/cs-fixer.cache')
 ;

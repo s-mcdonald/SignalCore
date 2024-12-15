@@ -29,12 +29,14 @@
 # ignore dev and bin
 /dev/.cache
 /dev/.cache/
+/dev/dev/.cache/
+.php-cs-fixer.cache
 /dev/.php-cs-fixer.cache
 
 !/dev/csfixer.php
 /dev/bin/php-cs-fixer
 
-
+composer.lock
 
 pluginSrc/
 /pluginSrc/
