@@ -14,6 +14,11 @@ use Signal\Core\ValueObjects\Contracts\NumericValueObject;
  */
 final class SignedMoneyAmount extends NumericValueObject
 {
+    public function getValue(): float
+    {
+        return (float) parent::getValue();
+    }
+
     protected function checkBoundary(): void
     {
     }
