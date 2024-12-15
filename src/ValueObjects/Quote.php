@@ -16,21 +16,21 @@ use Signal\Core\ValueObjects\Contracts\ComplexValueObject;
 final class Quote extends ComplexValueObject implements QuoteInterface
 {
     public function __construct(
-        private readonly AssetType $type,
-        private readonly AssetSymbol $symbol,
+        private readonly AssetType           $type,
+        private readonly AssetSymbol         $symbol,
         private readonly AssetShortName|null $shortName,
-        private readonly AssetLongName|null $longName,
-        private readonly Currency|null $currency,
-        private readonly Exchange|null $exchange,
-        private readonly MoneyAmount|null $fiftyDayAverage,
-        private readonly MoneyAmount|null $marketPrice,
-        private readonly MoneyAmount|null $fiftyTwoWeekHigh,
-        private readonly MoneyAmount|null $fiftyTwoWeekLow,
-        private readonly PeRatio|null $trailingPE,
-        private readonly PeRatio|null $forwardPE,
-        private readonly MoneyAmount|null $marketCap,
-        private readonly OpenInterest|null $openInterest,
-        private readonly TradingVolume|null $volume,
+        private readonly AssetLongName|null  $longName,
+        private readonly Currency|null       $currency,
+        private readonly Exchange|null       $exchange,
+        private readonly MoneyAmount|null    $fiftyDayAverage,
+        private readonly MoneyAmount|null    $marketPrice,
+        private readonly MoneyAmount|null    $fiftyTwoWeekHigh,
+        private readonly MoneyAmount|null    $fiftyTwoWeekLow,
+        private readonly PeRatio|null        $trailingPe,
+        private readonly PeRatio|null        $forwardPe,
+        private readonly MoneyAmount|null    $marketCap,
+        private readonly OpenInterest|null   $openInterest,
+        private readonly TradingVolume|null  $volume,
     ) {
         parent::__construct();
     }
@@ -45,57 +45,57 @@ final class Quote extends ComplexValueObject implements QuoteInterface
         return $this->symbol;
     }
 
-    public function getShortName(): AssetShortName
+    public function getShortName(): AssetShortName|null
     {
         return $this->shortName;
     }
 
-    public function getLongName(): AssetLongName
+    public function getLongName(): AssetLongName|null
     {
         return $this->longName;
     }
 
-    public function getCurrency(): Currency
+    public function getCurrency(): Currency|null
     {
         return $this->currency;
     }
 
-    public function getExchange(): Exchange
+    public function getExchange(): Exchange|null
     {
         return $this->exchange;
     }
 
-    public function getMarketPrice(): MoneyAmount
+    public function getMarketPrice(): MoneyAmount|null
     {
         return $this->marketPrice;
     }
 
-    public function getFiftyDayAverage(): MoneyAmount
+    public function getFiftyDayAverage(): MoneyAmount|null
     {
         return $this->fiftyDayAverage;
     }
 
-    public function getFiftyTwoWeekHigh(): MoneyAmount
+    public function getFiftyTwoWeekHigh(): MoneyAmount|null
     {
         return $this->fiftyTwoWeekHigh;
     }
 
-    public function getFiftyTwoWeekLow(): MoneyAmount
+    public function getFiftyTwoWeekLow(): MoneyAmount|null
     {
         return $this->fiftyTwoWeekLow;
     }
 
-    public function getTrailingPE(): PeRatio
+    public function getTrailingPe(): PeRatio|null
     {
-        return $this->trailingPE;
+        return $this->trailingPe;
     }
 
-    public function getForwardPE(): PeRatio
+    public function getForwardPe(): PeRatio|null
     {
-        return $this->forwardPE;
+        return $this->forwardPe;
     }
 
-    public function getMarketCap(): MoneyAmount
+    public function getMarketCap(): MoneyAmount|null
     {
         return $this->marketCap;
     }

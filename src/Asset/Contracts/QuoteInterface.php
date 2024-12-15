@@ -38,9 +38,9 @@ interface QuoteInterface
 
     public function getFiftyTwoWeekLow(): MoneyAmount|null;
 
-    public function getTrailingPE(): PeRatio|null;
+    public function getTrailingPe(): PeRatio|null;
 
-    public function getForwardPE(): PeRatio|null;
+    public function getForwardPe(): PeRatio|null;
 
     public function getMarketCap(): MoneyAmount|null;
 
