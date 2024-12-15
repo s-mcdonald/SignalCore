@@ -9,13 +9,14 @@ use Closure;
 use Countable;
 use InvalidArgumentException;
 use IteratorAggregate;
+use Signal\Core\Asset\Contracts\QuoteInterface;
 use Signal\Core\Collections\Contracts\CollectionInterface;
-use Signal\Core\System\SystemPluginInterface;
+use Signal\Core\DataServices\FinancialMarketDataProviderInterface;
 
 /**
  * @author s.mcdonald@outlook.com.au
  */
-class PluginCollection implements Countable, IteratorAggregate
+class DataProviderCollection implements Countable, IteratorAggregate
 {
     private CollectionInterface $innerCollection;
 
@@ -32,7 +33,7 @@ class PluginCollection implements Countable, IteratorAggregate
         return '{' . __CLASS__ . '}=' . spl_object_hash($this);
     }
 
-    public function indexOf(SystemPluginInterface $element): false|int
+    public function indexOf(FinancialMarketDataProviderInterface $element): false|int
     {
         return $this->innerCollection->indexOf($element);
     }
@@ -42,12 +43,12 @@ class PluginCollection implements Countable, IteratorAggregate
         return $this->innerCollection->existsBy($callback);
     }
 
-    public function add(SystemPluginInterface $item): void
+    public function add(FinancialMarketDataProviderInterface $item): void
     {
         $this->innerCollection->add($item);
     }
 
-    public function remove(SystemPluginInterface $item): void
+    public function remove(FinancialMarketDataProviderInterface $item): void
     {
         $this->innerCollection->remove($item);
     }
@@ -57,7 +58,7 @@ class PluginCollection implements Countable, IteratorAggregate
         $this->innerCollection->clear();
     }
 
-    public function contains(SystemPluginInterface $item): bool
+    public function contains(FinancialMarketDataProviderInterface $item): bool
     {
         return $this->innerCollection->contains($item);
     }
@@ -77,7 +78,7 @@ class PluginCollection implements Countable, IteratorAggregate
         return $this->innerCollection->all($callback);
     }
 
-    public function first(Closure|null $callback = null): SystemPluginInterface|null
+    public function first(Closure|null $callback = null): FinancialMarketDataProviderInterface|null
     {
         return $this->innerCollection->first($callback);
     }
@@ -117,8 +118,10 @@ class PluginCollection implements Countable, IteratorAggregate
     private static function assertArray(array $items): void
     {
         foreach ($items as $item) {
-            if (false === ($item instanceof SystemPluginInterface)) {
-                throw new InvalidArgumentException('All items must be of type: ' . SystemPluginInterface::class);
+            if (false === ($item instanceof QuoteInterface)) {
+                throw new InvalidArgumentException(
+                    'All items must be of type: ' . FinancialMarketDataProviderInterface::class,
+                );
             }
         }
     }
