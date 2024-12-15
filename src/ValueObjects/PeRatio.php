@@ -48,6 +48,11 @@ final class PeRatio extends FloatValueObject
         return $this->getValue() < self::LOW_VALUE;
     }
 
+    public function isAverage(): bool
+    {
+        return $this->getValue() > self::LOW_VALUE && $this->getValue() < self::HIGH_VALUE  ;
+    }
+
     public function isLowerThan(PeRatio $ratio): bool
     {
         return $this->getValue() < $ratio->getValue();
