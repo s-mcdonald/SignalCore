@@ -17,6 +17,16 @@ final class CountryName extends StringValueObject
 
     private const MAX_LENGTH = 255;
 
+    public function getValue(): string
+    {
+        return parent::getValue();
+    }
+
+    public function equals(CountryName $name): bool
+    {
+        return parent::getValue() === $name->getValue();
+    }
+
     protected function checkBoundary(): void
     {
         self::assertMinLength(self::MIN_LENGTH, $this);
