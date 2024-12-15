@@ -23,6 +23,11 @@ final class Exchange extends ComplexValueObject
         parent::__construct();
     }
 
+    public function equals(Exchange $exchange): bool
+    {
+        return $this->name === $exchange->name;
+    }
+
     protected function checkBoundary(): void
     {
         // ensure value is one of the Enums ExchangeName
