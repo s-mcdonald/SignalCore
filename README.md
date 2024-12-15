@@ -8,7 +8,7 @@ Signalz is a proprietary, feature-rich trading platform built with PHP and follo
 
 ## License
 
-This project is licensed under **Proprietary License**. Contact the author for more details.
+Whilst the Signalz platform is licensed under **Proprietary License**. this project for developing plugins is licensed under the **MIT License**. Contact the author for more details for early access to Signalz.
 
 ---
 
