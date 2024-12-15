@@ -26,7 +26,7 @@ interface MarketDataMediatorInterface
      * This is where we can determine the data provider based on the input requested.
      */
     public function findBestSuitedDataProviderBasedOnQuery(
-        AssetInterface $stock,
+        AssetInterface $asset,
         DateTimeInterface $startDate,
         DateTimeInterface $endDate,
         Interval $interval = Interval::Daily,

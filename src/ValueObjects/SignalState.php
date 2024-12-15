@@ -21,7 +21,7 @@ use Signal\Core\ValueObjects\Contracts\ComplexValueObject;
 final class SignalState extends ComplexValueObject
 {
     public function __construct(
-        private readonly AssetInterface $stock,
+        private readonly AssetInterface $asset,
         private readonly Signal $signal,
         private readonly string $description,
         private readonly IndicatorType $indicatorType,
@@ -33,7 +33,7 @@ final class SignalState extends ComplexValueObject
 
     public function getStock(): AssetInterface
     {
-        return $this->stock;
+        return $this->asset;
     }
 
     public function getSignal(): Signal

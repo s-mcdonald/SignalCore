@@ -25,7 +25,7 @@ interface AnalyzerInterface
 
     public function getShortName(): AnalyzerShortName;
 
-    public function analyze(AssetInterface $stock): SignalAnalysis;
+    public function analyze(AssetInterface $asset): SignalAnalysis;
 
-    public function getSignalState(AssetInterface $stock): SignalState;
+    public function getSignalState(AssetInterface $asset): SignalState;
 }
