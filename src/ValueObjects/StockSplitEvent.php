@@ -13,7 +13,7 @@ use Signal\Core\ValueObjects\Contracts\ComplexValueObject;
  *
  * @author s.mcdonald@outlook.com.au
  */
-final class StockSplit extends ComplexValueObject
+final class StockSplitEvent extends ComplexValueObject
 {
     public function __construct(
         private readonly DateTimeImmutable $dateOfSplit,
