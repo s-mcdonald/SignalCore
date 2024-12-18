@@ -17,6 +17,7 @@ final class SignalAnalysis extends ComplexValueObject
     public function __construct(
         private readonly Signal $signal,
         private readonly int|float|string $raw = '',
+        private readonly AnalysisScore|null $score = null,
     ) {
         parent::__construct();
     }
@@ -24,6 +25,11 @@ final class SignalAnalysis extends ComplexValueObject
     public function getSignal(): Signal
     {
         return $this->signal;
+    }
+
+    public function getScore(): AnalysisScore|null
+    {
+        return $this->score;
     }
 
     public function getRaw(): string

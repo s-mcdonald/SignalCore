@@ -4,15 +4,9 @@ declare(strict_types=1);
 
 namespace Signal\Core\System;
 
-use Signal\Core\Collections\AnalyzerCollection;
-use Signal\Core\Collections\DataProviderCollection;
-
-/**
- * @author s.mcdonald@outlook.com.au
- */
-interface SystemPlugin
+abstract class SystemPlugin implements SystemPluginInterface
 {
-    public function getAnalyzerCollection(): AnalyzerCollection;
-
-    public function getDataProvidersCollection(): DataProviderCollection;
+    final public function __construct()
+    {
+    }
 }
