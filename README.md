@@ -1,14 +1,14 @@
 # Signal - Core
 
-**SignalCore** is the foundational library for developing and deploying plugins on the Signalz trading platform.
+**SignalCore** is the foundational library for developing and deploying plugins on the Signals trading platform.
 
-Signalz is a proprietary, feature-rich trading platform built with PHP and following Domain-Driven Design (DDD) architecture. This library serves as the shared layer of the platform, providing essential functionality that is used by the main application as well as both first-party and third-party plugins.
+Signals is a proprietary, feature-rich trading platform built with PHP and following Domain-Driven Design (DDD) architecture. This library serves as the shared layer of the platform, providing essential functionality that is used by the main application as well as both first-party and third-party plugins.
 
 ---
 
 ## License
 
-Whilst the Signalz platform is licensed under **Proprietary License**. this project for developing plugins is licensed under the **MIT License**. Contact the author for more details for early access to Signalz.
+Whilst the Signals platform is licensed under **Proprietary License**. this project for developing plugins is licensed under the **MIT License**. Contact the author for more details for early access to Signals.
 
 ---
 
