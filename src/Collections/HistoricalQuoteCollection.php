@@ -14,6 +14,8 @@ use Signal\Core\Collections\Contracts\CollectionInterface;
 
 /**
  * @author s.mcdonald@outlook.com.au
+ * @note: Historical Quotes are not quotes they are data or candles.
+ * This class will eventually undergo a name change.
  */
 class HistoricalQuoteCollection implements Countable, IteratorAggregate
 {
