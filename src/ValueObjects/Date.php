@@ -32,6 +32,21 @@ final class Date extends DateTimeValueObject
         );
     }
 
+    public function getValue(): DateTimeInterface
+    {
+        return parent::getValue();
+    }
+
+    public function lessThan(DateTimeInterface $otherDate): bool
+    {
+        return $this->getValue()->getTimestamp() < $otherDate->getTimestamp();
+    }
+
+    public function greaterThan(DateTimeInterface $otherDate): bool
+    {
+        return $this->getValue()->getTimestamp() > $otherDate->getTimestamp();
+    }
+
     public function getYear(): int
     {
         return (int) $this->getValue()->format('Y');
