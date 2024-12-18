@@ -12,6 +12,19 @@ use Signal\Core\ValueObjects\Contracts\NumericValueObject;
  */
 trait ComparesNumericAgainstZeroTrait
 {
+    protected static function assertBetweenInclusive(NumericValueObject $vo, int $min, int $max): void
+    {
+        if ($vo->getValue() < $min || $vo->getValue() > $max) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    static::class . ' value must be between %s and %s.',
+                    $min,
+                    $max,
+                )
+            );
+        }
+    }
+
     protected static function assertZeroOrAbove(NumericValueObject $vo): void
     {
         if ($vo->getValue() < 0) {
