@@ -1,6 +1,6 @@
 {
     "name": "s-mcdonald/signalcore",
-    "description": "Core library for the signalz trading platform by CodeLink.",
+    "description": "Core library for the Signals trading platform by CodeLink.",
     "version": "0.1.1",
     "type": "project",
     "license": "MIT",
