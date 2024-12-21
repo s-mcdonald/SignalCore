@@ -20,7 +20,7 @@ trait ComparesNumericAgainstZeroTrait
                     static::class . ' value must be between %s and %s.',
                     $min,
                     $max,
-                )
+                ),
             );
         }
     }

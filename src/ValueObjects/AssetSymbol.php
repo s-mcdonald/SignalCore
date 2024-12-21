@@ -22,10 +22,10 @@ final class AssetSymbol extends StringValueObject
     public function equals(AssetSymbol|string $symbol): bool
     {
         if ($symbol instanceof self) {
-            return strtoupper(parent::getValue()) === strtoupper($symbol->getValue());
+            return mb_strtoupper(parent::getValue()) === mb_strtoupper($symbol->getValue());
         }
 
-        return strtoupper(parent::getValue()) === strtoupper($symbol);
+        return mb_strtoupper(parent::getValue()) === mb_strtoupper($symbol);
     }
 
     public function getValue(): string

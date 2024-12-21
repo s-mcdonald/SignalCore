@@ -12,6 +12,7 @@ use Signal\Core\ValueObjects\TradingVolume;
 
 /**
  * @author s.mcdonald@outlook.com.au
+ *
  * @note: Historical Quotes are not quotes they are data or candles.
  * This interface will eventually undergo a name change.
  */

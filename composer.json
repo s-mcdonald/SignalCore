@@ -35,7 +35,6 @@
     "scripts": {
         "build": [
             "composer dumpautoload",
-            "composer clearcache",
             "composer update",
             "composer install",
             "@clean"
@@ -44,8 +43,7 @@
         "clean:csf:check": "./dev/bin/php-cs-fixer check --diff -v --allow-risky=yes --config=\"./dev/csfixer.php\"",
         "clean:csf:fix": "./dev/bin/php-cs-fixer fix --diff -v --allow-risky=yes --config=\"./dev/csfixer.php\"",
         "clean": [
-            "@clean:csf:fix",
-            "@clear-cache"
+            "@clean:csf:fix"
         ]
     },
     "conflict": {
