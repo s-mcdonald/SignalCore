@@ -1,7 +1,7 @@
 {
     "name": "s-mcdonald/signalcore",
     "description": "Core library for the Signals trading platform by CodeLink.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "type": "project",
     "license": "MIT",
     "minimum-stability": "stable",
