@@ -19,6 +19,20 @@ final class AssetSymbol extends StringValueObject
 
     private const MAX_LENGTH = 50;
 
+    public function equals(AssetSymbol|string $symbol): bool
+    {
+        if ($symbol instanceof self) {
+            return strtoupper(parent::getValue()) === strtoupper($symbol->getValue());
+        }
+
+        return strtoupper(parent::getValue()) === strtoupper($symbol);
+    }
+
+    public function getValue(): string
+    {
+        return parent::getValue();
+    }
+
     protected function checkBoundary(): void
     {
         self::assertMinLength(self::MIN_LENGTH, $this);
