@@ -7,6 +7,7 @@ namespace Signal\Core\Reporting\Analyzers;
 use Signal\Core\Asset\Contracts\AssetInterface;
 use Signal\Core\Enums\IndicatorType;
 use Signal\Core\Enums\Interval;
+use Signal\Core\Reporting\AnalysisConfigurationInterface;
 use Signal\Core\ValueObjects\AnalyzerDescription;
 use Signal\Core\ValueObjects\AnalyzerShortName;
 use Signal\Core\ValueObjects\SignalState;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Signal\Core\Reporting\Analyzers;
+namespace Signal\Core\Reporting;
 
 use Signal\Core\Enums\InvestmentType;
 
