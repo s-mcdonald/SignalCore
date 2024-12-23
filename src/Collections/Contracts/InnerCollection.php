@@ -44,12 +44,15 @@ final class InnerCollection implements CollectionInterface, Countable
 
     public function getType(): string
     {
+        if (false === isset($this->type)) {
+            return '';
+        }
         return $this->type;
     }
 
     public function addAll(CollectionInterface $results): void
     {
-        foreach ($results as $result) {
+        foreach ($results->getIterator() as $result) {
             $this->ensureType($result);
             $this->items[] = $result;
         }
@@ -78,7 +81,12 @@ final class InnerCollection implements CollectionInterface, Countable
 
     public function add($item): void
     {
-        $this->ensureType($item);
+        if (true === isset($this->items)) {
+            $this->ensureType($item);
+        } else {
+            $this->setType($item);
+        }
+
         $this->items[] = $item;
     }
 
@@ -155,28 +163,25 @@ final class InnerCollection implements CollectionInterface, Countable
 
     private function ensureType($a): void
     {
+        if (false === isset($this->type)) {
+            return;
+        }
         $receivedType = \gettype($a);
         $collectionType = $this->type;
 
-        if (\gettype($a) !== $this->type) {
-            throw new InvalidArgumentException('All items must be of the same type.' . $receivedType . ' - ' . $collectionType);
+        if ($receivedType !== $collectionType) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    'All items must be of the same type, Received: %s, Expected: %s',
+                    $receivedType,
+                    $collectionType,
+                ),
+            );
         }
     }
 
     private function setType($item): void
     {
-//        if (\is_object($item)) {
-//            $this->type = $item::class;
-//
-//            return;
-//        }
-
-//        if (\is_array($item)) {
-//            $this->type = 'array';
-//
-//            return;
-//        }
-
         $this->type = \gettype($item);
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Signal\Core\Tests\Unit\ValueObjects;
 
+use ArrayIterator;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Signal\Core\Collections\Contracts\InnerCollection;
@@ -20,7 +21,7 @@ class InnerCollectionTest extends TestCase
         $this->assertSame('string', $collection->getType());
 
         $collection = new InnerCollection([new stdClass()]);
-        $this->assertSame(stdClass::class, $collection->getType());
+        $this->assertSame('object', $collection->getType());
     }
 
     public function testConstructorThrowsExceptionWithMixedTypes(): void
@@ -84,7 +85,7 @@ class InnerCollectionTest extends TestCase
     public function testFilter(): void
     {
         $collection = new InnerCollection([1, 2, 3, 4, 5]);
-        $filtered = $collection->filter(fn($item) => $item > 3);
+        $filtered = $collection->filter(static fn ($item) => $item > 3);
         $this->assertSame([4, 5], $filtered->toArray());
         $this->assertInstanceOf(InnerCollection::class, $filtered);
     }
@@ -92,7 +93,7 @@ class InnerCollectionTest extends TestCase
     public function testMap(): void
     {
         $collection = new InnerCollection([1, 2, 3]);
-        $mapped = $collection->map(fn($item) => $item * 2);
+        $mapped = $collection->map(fn ($item) => $item * 2);
         $this->assertSame([2, 4, 6], $mapped->toArray());
         $this->assertInstanceOf(InnerCollection::class, $mapped);
     }
@@ -102,7 +103,7 @@ class InnerCollectionTest extends TestCase
         $collection = new InnerCollection([1, 2, 3]);
         $this->assertSame(1, $collection->first());
 
-        $filtered = $collection->first(fn($key, $item) => $item > 1);
+        $filtered = $collection->first(fn ($key, $item) => $item > 1);
         $this->assertSame(2, $filtered);
     }
 
@@ -123,14 +124,15 @@ class InnerCollectionTest extends TestCase
     public function testExistsBy(): void
     {
         $collection = new InnerCollection([1, 2, 3]);
-        $this->assertTrue($collection->existsBy(fn($key, $item) => $item > 2));
-        $this->assertFalse($collection->existsBy(fn($key, $item) => $item > 999));
+        $this->assertTrue($collection->existsBy(fn ($key, $item) => $item > 2));
+        $this->assertFalse($collection->existsBy(fn ($key, $item) => $item > 999));
     }
 
     public function testAddAll(): void
     {
         $collection1 = new InnerCollection([1, 2]);
         $collection2 = new InnerCollection([3, 4]);
+
         $collection1->addAll($collection2);
 
         $this->assertSame([1, 2, 3, 4], $collection1->toArray());
@@ -148,8 +150,8 @@ class InnerCollectionTest extends TestCase
     public function testAll(): void
     {
         $collection = new InnerCollection([1, 2, 3]);
-        $this->assertTrue($collection->all(fn($key, $item) => $item > 0));
-        $this->assertFalse($collection->all(fn($key, $item) => $item > 1));
+        $this->assertTrue($collection->all(fn ($key, $item) => $item > 0));
+        $this->assertFalse($collection->all(fn ($key, $item) => $item > 1));
     }
 
     public function testGetIterator(): void
