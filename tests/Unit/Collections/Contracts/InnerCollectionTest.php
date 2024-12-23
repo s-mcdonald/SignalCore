@@ -88,6 +88,7 @@ class InnerCollectionTest extends TestCase
         $filtered = $collection->filter(static fn ($item) => $item > 3);
         $this->assertSame([4, 5], $filtered->toArray());
         $this->assertInstanceOf(InnerCollection::class, $filtered);
+        $this->assertNotSame($collection, $filtered);
     }
 
     public function testMap(): void
