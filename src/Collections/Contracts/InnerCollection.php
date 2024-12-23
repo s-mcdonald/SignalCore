@@ -23,14 +23,17 @@ final class InnerCollection implements CollectionInterface, Countable
     public function __construct(
         array $items = [],
     ) {
-        if (\count($items) > 0) {
+        if (false === empty($items)) {
             $v = array_values($items);
             $this->setType($v[0]);
 
+            // Add all items while ensuring type consistency
             foreach ($v as $result) {
-                //            $this->ensureType($result);
-                $this->items[] = $result;
+                $this->ensureType($result);
             }
+
+            // Assign validated items to the internal array
+            $this->items = $v;
         }
     }
 
@@ -152,24 +155,27 @@ final class InnerCollection implements CollectionInterface, Countable
 
     private function ensureType($a): void
     {
+        $receivedType = \gettype($a);
+        $collectionType = $this->type;
+
         if (\gettype($a) !== $this->type) {
-            throw new InvalidArgumentException('All items must be of the same type.');
+            throw new InvalidArgumentException('All items must be of the same type.' . $receivedType . ' - ' . $collectionType);
         }
     }
 
     private function setType($item): void
     {
-        if (\is_object($item)) {
-            $this->type = $item::class;
+//        if (\is_object($item)) {
+//            $this->type = $item::class;
+//
+//            return;
+//        }
 
-            return;
-        }
-
-        if (\is_array($item)) {
-            $this->type = 'array';
-
-            return;
-        }
+//        if (\is_array($item)) {
+//            $this->type = 'array';
+//
+//            return;
+//        }
 
         $this->type = \gettype($item);
     }
