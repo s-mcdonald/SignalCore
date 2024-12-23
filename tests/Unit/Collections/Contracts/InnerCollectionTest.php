@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Signal\Core\Tests\Unit\ValueObjects;
+namespace Signal\Core\Tests\Unit\Collections\Contracts;
 
 use ArrayIterator;
 use InvalidArgumentException;
