@@ -10,7 +10,8 @@
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "symfony/dotenv": "7.1.*"
     },
     "require-dev": {
         "mockery/mockery": "1.5.1",
