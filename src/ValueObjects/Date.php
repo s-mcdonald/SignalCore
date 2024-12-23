@@ -67,6 +67,11 @@ final class Date extends DateTimeValueObject
         return $this->getValue()->format('l');
     }
 
+    public function getYmdString(): string
+    {
+        return $this->getValue()->format('Y-m-d');
+    }
+
     public function isToday(): bool
     {
         return $this->getValue()->format('Y-m-d') === (new DateTime())->format('Y-m-d');
