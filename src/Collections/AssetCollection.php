@@ -118,7 +118,12 @@ class AssetCollection implements Countable, IteratorAggregate
     {
         foreach ($items as $item) {
             if (false === ($item instanceof AssetInterface)) {
-                throw new InvalidArgumentException('All items must be of type: ' . AssetInterface::class);
+                throw new InvalidArgumentException(
+                    sprintf(
+                        'All items must be of type: %s',
+                        AssetInterface::class
+                    ),
+                );
             }
         }
     }
