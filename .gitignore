@@ -3,7 +3,6 @@
 /.env.local
 /.env.local.php
 /.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
 /var/
 /vendor/
 
@@ -37,7 +36,3 @@
 /dev/bin/php-cs-fixer
 
 composer.lock
-
-pluginSrc/
-/pluginSrc/
-pluginSrc
