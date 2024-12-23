@@ -22,22 +22,7 @@ class TradingVolumeTest extends TestCase
     public static function provideDataForTestWithoutExceptions(): array
     {
         return [
-            'numbers' => 0, 1, 2, 3, 100, 100_000_000,
-        ];
-    }
-
-    /**
-     * @dataProvider  provideDataForTestWithBoundaryExceptions
-     */
-    public function testWithBoundaryExceptions(int $value): void
-    {
-        new TradingVolume($value);
-    }
-
-    public static function provideDataForTestWithBoundaryExceptions(): array
-    {
-        return [
-            'numbers' => 0,1,2,3,100, 10_000_000
+             [0],[1], [2],[3], [100], [100_000_000],
         ];
     }
 }
