@@ -23,7 +23,7 @@ final class SignalState extends ComplexValueObject
     public function __construct(
         private readonly AssetInterface $asset,
         private readonly Signal $signal,
-        private readonly string $description,
+        private readonly GenericDescription $description,
         private readonly IndicatorType $indicatorType,
         private readonly Interval $interval,
         private readonly string $raw = '',
@@ -51,7 +51,7 @@ final class SignalState extends ComplexValueObject
         return $this->raw;
     }
 
-    public function getDescription(): string
+    public function getDescription(): GenericDescription
     {
         return $this->description;
     }
