@@ -31,7 +31,7 @@ final class SignalState extends ComplexValueObject
         parent::__construct();
     }
 
-    public function getStock(): AssetInterface
+    public function getAsset(): AssetInterface
     {
         return $this->asset;
     }
