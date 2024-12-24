@@ -19,6 +19,11 @@ final class GenericDescription extends StringValueObject
 
     private const MAX_LENGTH = 255;
 
+    public function getValue(): string
+    {
+        return parent::getValue();
+    }
+
     protected function checkBoundary(): void
     {
         self::assertMinLength(self::MIN_LENGTH, $this);
