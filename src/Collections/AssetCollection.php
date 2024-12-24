@@ -121,7 +121,7 @@ class AssetCollection implements Countable, IteratorAggregate
                 throw new InvalidArgumentException(
                     sprintf(
                         'All items must be of type: %s',
-                        AssetInterface::class
+                        AssetInterface::class,
                     ),
                 );
             }

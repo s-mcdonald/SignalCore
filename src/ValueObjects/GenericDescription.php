@@ -7,16 +7,13 @@ namespace Signal\Core\ValueObjects;
 use Signal\Core\ValueObjects\Contracts\StringValueObject;
 
 /**
- * AnalyzerDescription.
+ * GenericDescription.
  *
- * This is the Description for an Analyzer.
+ * This is the Description various items.
  *
  * @author s.mcdonald@outlook.com.au
- *
- * @deprecated
- * @see GenericDescription
  */
-final class AnalyzerDescription extends StringValueObject
+final class GenericDescription extends StringValueObject
 {
     private const MIN_LENGTH = 0;
 

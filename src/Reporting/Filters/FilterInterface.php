@@ -24,17 +24,17 @@ interface FilterInterface
      *
      * Only `AAPL` would be included in the final result, as it is not marked for exclusion.
      *
-     * @param AssetInterface $asset The asset being evaluated.
-     * @param AnalysisConfigurationInterface $configuration The configuration defining the analysis criteria.
-     * @param array $stockData Additional stock-related data used in the filtering process.
+     * @param AssetInterface $asset the asset being evaluated
+     * @param AnalysisConfigurationInterface $configuration the configuration defining the analysis criteria
+     * @param array $stockData additional stock-related data used in the filtering process
      *
-     * @return bool `true` if the asset should be excluded from the final data set, `false` otherwise.
+     * @return bool `true` if the asset should be excluded from the final data set, `false` otherwise
      *
      * @experimental
      */
     public function filter(
         AssetInterface $asset,
         AnalysisConfigurationInterface $configuration,
-        array $stockData
+        array $stockData,
     ): bool;
 }

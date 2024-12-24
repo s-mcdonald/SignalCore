@@ -47,6 +47,7 @@ final class InnerCollection implements CollectionInterface, Countable
         if (false === isset($this->type)) {
             return '';
         }
+
         return $this->type;
     }
 
