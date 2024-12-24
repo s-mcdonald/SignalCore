@@ -26,4 +26,9 @@ interface AnalyzerInterface
     public function getShortName(): AnalyzerShortName;
 
     public function analyze(AssetInterface $asset, AnalysisConfigurationInterface $configuration): SignalState;
+
+    /**
+     * @experimental
+     */
+    public function analyze2(AssetInterface $asset, AnalysisConfigurationInterface $configuration, array $data): SignalState;
 }
