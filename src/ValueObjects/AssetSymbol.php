@@ -25,7 +25,18 @@ final class AssetSymbol extends StringValueObject
             return mb_strtoupper(parent::getValue()) === mb_strtoupper($symbol->getValue());
         }
 
-        return mb_strtoupper(parent::getValue()) === mb_strtoupper($symbol);
+        return mb_strtoupper(parent::getValue()) === mb_strtoupper(trim($symbol));
+    }
+
+    public function isOneOf(AssetSymbol|string ...$symbols): bool
+    {
+        foreach ($symbols as $symbol) {
+            if ($this->equals($symbol)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public function getValue(): string
