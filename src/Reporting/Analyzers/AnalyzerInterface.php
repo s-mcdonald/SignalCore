@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Signal\Core\Reporting\Analyzers;
 
+use Signal\Core\Asset\AssetPreFilterDataAggregate;
 use Signal\Core\Asset\Contracts\AssetInterface;
 use Signal\Core\Enums\IndicatorType;
 use Signal\Core\Enums\Interval;
@@ -25,10 +26,9 @@ interface AnalyzerInterface
 
     public function getShortName(): AnalyzerShortName;
 
-    public function analyze(AssetInterface $asset, AnalysisConfigurationInterface $configuration): SignalState;
-
-    /**
-     * @experimental
-     */
-    public function analyze2(AssetInterface $asset, AnalysisConfigurationInterface $configuration, array $data): SignalState;
+    public function analyze(
+        AssetInterface $asset,
+        AnalysisConfigurationInterface $configuration,
+        AssetPreFilterDataAggregate $stockData,
+    ): SignalState;
 }
