@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Signal\Core\Reporting\Filters;
 
+use Signal\Core\Asset\AssetPreFilterDataAggregate;
 use Signal\Core\Asset\Contracts\AssetInterface;
 use Signal\Core\Reporting\AnalysisConfigurationInterface;
 
@@ -26,7 +27,7 @@ interface FilterInterface
      *
      * @param AssetInterface $asset the asset being evaluated
      * @param AnalysisConfigurationInterface $configuration the configuration defining the analysis criteria
-     * @param array $stockData additional stock-related data used in the filtering process
+     * @param AssetPreFilterDataAggregate $stockData additional stock-related data used in the filtering process
      *
      * @return bool `true` if the asset should be excluded from the final data set, `false` otherwise
      *
@@ -35,6 +36,6 @@ interface FilterInterface
     public function filter(
         AssetInterface $asset,
         AnalysisConfigurationInterface $configuration,
-        array $stockData,
+        AssetPreFilterDataAggregate $stockData,
     ): bool;
 }
